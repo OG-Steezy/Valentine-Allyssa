@@ -1,0 +1,141 @@
+/* Ensure full-page gradient works */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Animated default gradient */
+body {
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+
+  background: linear-gradient(-45deg, #ff9aa2, #ffb7b2, #ff758c, #ff7eb3);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+}
+
+/* Love mode gradient (after Yes click) */
+body.love-mode {
+  background: linear-gradient(-45deg, #ff4d6d, #ff758f, #ff85a1, #ffc2d1);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Screen layout */
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: transparent; /* IMPORTANT */
+}
+
+/* Hide screens */
+.hidden {
+  display: none;
+}
+
+/* Make text readable on gradient */
+.screen h1,
+.screen p {
+  color: white;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* Button colors */
+#yesBtn { 
+  background: #ff4d6d; 
+  color: white; 
+}
+
+#noBtn { 
+  background: #ccc; 
+}
+
+#hiBtn { 
+  background: #ff85a1; 
+  color: white; 
+}
+
+/* Floating Hearts Container */
+#heartsContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Heart styling */
+.heart {
+  position: absolute;
+  font-size: 24px;
+  animation: floatUp 4s linear forwards, fadeOut 2s ease-in forwards; /* Added fadeOut animation */
+  opacity: 0.9;
+}
+
+/* Floating animation */
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Shake effect for 'No' button */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+#noBtn.shake {
+  animation: shake 0.5s ease;
+}
