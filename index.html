@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine ❤️</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+  <!-- Screen 1 -->
+  <div class="screen" id="screen1">
+    <h1>👋Hi Allyssa 🤍</h1>
+    <p>Say "Hi" to continue...</p>
+    <button id="hiBtn">😊Hi Handsome 🎔</button>
+  </div>
+
+  <!-- Screen 2 -->
+  <div class="screen hidden" id="screen2">
+    <h1>Allyssa, Will you be my Valentine? 💌</h1>
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">Nah 😢</button>
+    <p id="message"></p>
+  </div>
+
+  <!-- Floating Hearts -->
+  <div id="heartsContainer"></div>
+
+  <!-- Updated Audio with Fallback -->
+  <audio id="romanticSong">
+    <source src="romantic.mp3" type="audio/mpeg">
+    <source src="romantic.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="Script.js"></script>
+</body>
+</html>
